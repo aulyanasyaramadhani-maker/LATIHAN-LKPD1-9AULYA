@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan LKPD6</title>
+</head>
+<body>
+
+  <h3>Div Kosong:</h3>
+  <div id="wadah"></div>
+
+  <button onclick="tambahElemen()">Tambah Elemen</button>
+
+  <script>
+    function tambahElemen() {
+      // Membuat elemen paragraf baru
+      let elemenBaru = document.createElement("p");
+
+      // Menambahkan teks ke paragraf
+      elemenBaru.textContent = "Ini elemen baru yang ditambahkan!";
+
+      // Menambahkannya ke dalam div
+      document.getElementById("wadah").appendChild(elemenBaru);
+    }
+    //buat elemen baru,isi elemen tersebut,masukkan elemen ke halaman
+  </script>
+
+</body>
+</html>

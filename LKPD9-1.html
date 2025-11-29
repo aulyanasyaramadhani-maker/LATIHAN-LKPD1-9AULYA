@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Registrasi</title>
+  <style>
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>Form Registrasi</h2>
+
+  <label>Nama:</label><br>
+  <input type="text" id="nama" oninput="cekNama()"><br>
+  <div id="namaMsg" class="error"></div>
+  <br>
+
+  <label>Email:</label><br>
+  <input type="text" id="email" oninput="cekEmail()"><br>
+  <div id="emailMsg" class="error"></div>
+  <br>
+
+  <label>Password:</label><br>
+  <input type="password" id="password" oninput="cekPassword()"><br>
+  <div id="pwMsg" class="error"></div>
+  <br>
+
+  <button onclick="submitForm()">Daftar</button>
+
+  <p id="hasil"></p>
+
+  <script>
+    function cekNama() {
+      let nama = document.getElementById("nama").value;
+      let msg = document.getElementById("namaMsg");
+
+      if (nama.length < 3) {
+        msg.innerHTML = "Nama minimal 3 huruf.";
+      } else {
+        msg.innerHTML = "";
+      }
+    }
+
+    function cekEmail() {
+      let email = document.getElementById("email").value;
+      let msg = document.getElementById("emailMsg");
+
+      if (!email.includes("@") || !email.includes(".")) {
+        msg.innerHTML = "Email tidak valid.";
+      } else {
+        msg.innerHTML = "";
+      }
+    }
+
+    function cekPassword() {
+      let pw = document.getElementById("password").value;
+      let msg = document.getElementById("pwMsg");
+
+      if (pw.length < 8) {
+        msg.innerHTML = "Password harus minimal 8 karakter.";
+      } else {
+        msg.innerHTML = "";
+      }
+    }
+
+    function submitForm() {
+      let erorNama = document.getElementById("namaMsg").innerHTML;
+      let erorEmail = document.getElementById("emailMsg").innerHTML;
+      let erorPw = document.getElementById("pwMsg").innerHTML;
+
+      if (erorNama || erorEmail || erorPw) {
+        document.getElementById("hasil").innerHTML =
+          "<span class='error'>❌ Form masih ada yang salah!</span>";
+      } else {
+        document.getElementById("hasil").innerHTML =
+          "<span class='success'>✔ Registrasi berhasil!</span>";
+      }
+    }
+    //membuat validasi yang akurat dan real-time tanpa mengganggu pengguna
+  </script>
+
+</body>
+</html>

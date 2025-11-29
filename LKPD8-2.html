@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan LKPD8</title>
+</head>
+<body>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" oninput="cekPassword()">
+
+  <div id="feedback" style="color: red; margin-top: 5px;"></div>
+
+  <script>
+    function cekPassword() {
+      let pw = document.getElementById("password").value;
+
+      if (pw.length < 8) {
+        document.getElementById("feedback").innerHTML =
+          "❌ Password harus minimal <b>8 karakter</b>!";
+      } else {
+        document.getElementById("feedback").innerHTML =
+          "✅ Password sudah cukup aman!";
+      }
+    }
+    //data tidak valid masuk ke server,kerentanan keamanan,server harus menangani banyak eror,dll
+  </script>
+
+</body>
+</html>

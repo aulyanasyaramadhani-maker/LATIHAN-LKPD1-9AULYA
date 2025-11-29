@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan LKPD7</title>
+</head>
+<body>
+
+  <input type="text" id="inputText" oninput="tampilkan()"
+         placeholder="Ketik sesuatu...">
+
+  <p id="hasil"></p>
+
+  <script>
+    function tampilkan() {
+      let nilai = document.getElementById("inputText").value;
+      document.getElementById("hasil").textContent = nilai;
+    }
+    //karena event adalah cara halaman web "mengetahui" bahwa pengguna sedang melakukan sesuatu
+  </script>
+
+</body>
+</html>
