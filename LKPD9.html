@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Belanja</title>
+</head>
+<body>
+
+<h2>Daftar Belanja</h2>
+
+<input type="text" id="itemInput" placeholder="Masukkan nama barang">
+<button onclick="tambahItem()">Tambah</button>
+<button onclick="resetList()">Reset</button>
+
+<p id="peringatan" style="color:red;"></p>
+
+<ul id="daftarBelanja"></ul>
+
+<script>
+// ARRAY untuk menyimpan daftar
+let listBelanja = [];
+
+function tambahItem() {
+    // Ambil nilai input
+    let item = document.getElementById("itemInput").value;
+
+    // Validasi: tidak boleh kosong
+    if (item === "") {
+        document.getElementById("peringatan").innerHTML = "Nama barang tidak boleh kosong!";
+        return; 
+    }
+
+    // Tambahkan item ke ARRAY
+    listBelanja.push(item);
+
+    // Bersihkan pesan peringatan
+    document.getElementById("peringatan").innerHTML = "";
+
+    // Kosongkan input
+    document.getElementById("itemInput").value = "";
+
+    // Tampilkan ulang daftar belanja
+    tampilkanList();
+}
+
+function tampilkanList() {
+    // Ambil elemen <ul>
+    let ul = document.getElementById("daftarBelanja");
+
+    // Kosongkan setiap kali agar tidak dobel
+    ul.innerHTML = "";
+
+    // PERULANGAN → tampilkan setiap item di array
+    for (let i = 0; i < listBelanja.length; i++) {
+        let li = document.createElement("li"); // buat <li>
+        li.textContent = listBelanja[i];       // isi dengan item ke-i
+        ul.appendChild(li);                    // tambahkan ke <ul>
+    }
+}
+
+// FUNGSI RESET / HAPUS SEMUA LIST
+function resetList() {
+    listBelanja = [];                 // kosongkan array
+    document.getElementById("daftarBelanja").innerHTML = ""; 
+    document.getElementById("peringatan").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>
